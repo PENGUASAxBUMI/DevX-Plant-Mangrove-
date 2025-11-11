@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kampanye 100.000 Mangrove • TanamMangrove</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6fbf7;
+      --accent:#2f8f4e; /* utama */
+      --accent-2:#66b26b;
+      --muted:#6b7a6b;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg),#eef7ee);
+      color:#123; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    a{color:var(--accent); text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:2rem}
+
+    /* Header */
+    header{backdrop-filter:blur(6px);position:sticky;top:0;z-index:10;background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.45));border-bottom:1px solid rgba(20,40,20,0.04)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:Playfair Display,serif}
+    nav ul{display:flex;gap:1rem;align-items:center;margin:0;padding:0;list-style:none}
+    nav li{font-weight:600;color:var(--muted)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;padding:3rem 0}
+    .hero-left{padding:1rem}
+    h1{font-family:Playfair Display,serif;font-size:2.1rem;margin:.1rem 0;color:#0b3a1f}
+    .lead{color:#244; font-size:1.05rem;margin:.75rem 0}
+    .cta-row{display:flex;gap:.75rem;margin-top:1.25rem}
+    .btn{padding:.75rem 1.1rem;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--accent);color:white;box-shadow:0 6px 18px rgba(47,143,78,0.14)}
+    .btn-secondary{background:transparent;border:2px solid var(--accent-2);color:var(--accent-2)}
+    .meta-card{margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap}
+    .stat{background:var(--card);padding:1rem;border-radius:12px;min-width:140px;box-shadow:0 6px 20px rgba(12,30,12,0.04)}
+    .stat .num{font-weight:700;font-size:1.2rem;color:var(--accent)}
+    .stat .label{font-size:.85rem;color:var(--muted)}
+
+    /* Hero right: illustration */
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));border-radius:16px;padding:1rem;box-shadow:0 8px 30px rgba(12,30,12,0.06);display:flex;flex-direction:column;align-items:center}
+    .illustration{width:100%;height:260px;border-radius:12px;background-image:radial-gradient(circle at 10% 20%, rgba(102,178,107,0.12), transparent 15%), linear-gradient(180deg,#eaf6ea,#dff2df);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .mangrove-svg{width:80%;max-width:300px}
+
+    /* Progress */
+    .progress-wrap{width:100%;padding:1rem}
+    .progress-bar{height:14px;background:rgba(20,40,20,0.06);border-radius:999px;overflow:hidden}
+    .progress-fill{height:100%;width:42%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
+    .progress-meta{display:flex;justify-content:space-between;font-size:.9rem;color:var(--muted);margin-top:.5rem}
+
+    /* Sections */
+    section{padding:3rem 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .card{background:var(--card);padding:1.25rem;border-radius:12px;box-shadow:0 8px 24px rgba(10,30,10,0.04)}
+    .card h3{margin-top:0;color:#123}
+
+    /* How to help list */
+    .steps{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .step{display:flex;gap:.75rem;align-items:flex-start}
+    .badge{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+    .gallery img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+
+    /* Contact form */
+    form{display:grid;gap:.75rem}
+    input,textarea,select{padding:.85rem;border-radius:10px;border:1px solid rgba(15,40,15,0.08);font-size:1rem}
+    .form-row{display:flex;gap:.6rem}
+    .small{flex:1}
+
+    /* Footer */
+    footer{padding:2rem 0;color:var(--muted);border-top:1px solid rgba(12,30,12,0.04)}
+
+    /* Responsiveness */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:1rem}
+      .hero-right{order:2}
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:1fr}
+    }
+
+    @media (max-width:480px){
+      .nav{padding:.6rem 0.6rem}
+      h1{font-size:1.6rem}
+      .illustration{height:200px}
+    }
+
+    /* Small aesthetic touches */
+    .muted{color:var(--muted)}
+    .kicker{font-size:.85rem;color:var(--accent-2);font-weight:700}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">TM</div>
+        <div>
+          <div style="font-weight:700">TanamMangrove</div>
+          <div style="font-size:.85rem;color:var(--muted)">Kampanye Penanaman 100.000 Pohon</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#impact">Dampak</a></li>
+          <li><a href="#how">Cara Bantu</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <div class="kicker">KAMPANYE NASIONAL</div>
+        <h1 id="hero-title">Tanam 100.000 Mangrove — Untuk Pesisir Sehat & Masa Depan</h1>
+        <p class="lead">Bergabunglah dalam gerakan penanaman mangrove masif untuk melindungi garis pantai, memperkaya keanekaragaman hayati, dan memperkuat ketahanan terhadap perubahan iklim.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#how">Ikut Menanam</a>
+          <a class="btn btn-secondary" href="#contact">Donasi & Dukungan</a>
+        </div>
+
+        <div class="meta-card">
+          <div class="stat">
+            <div class="num">100.000</div>
+            <div class="label">Target Pohon</div>
+          </div>
+          <div class="stat">
+            <div class="num">42.000</div>
+            <div class="label">Telah Ditanam</div>
+          </div>
+          <div class="stat">
+            <div class="num">25</div>
+            <div class="label">Kabupaten Mitra</div>
+          </div>
+        </div>
+
+        <div style="margin-top:1.25rem;">
+          <div class="progress-wrap card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <strong>Perkembangan</strong>
+              <span class="muted">42% dari target</span>
+            </div>
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42" style="margin-top:.6rem">
+              <div class="progress-fill" aria-hidden="true"></div>
+            </div>
+            <div class="progress-meta"><span>42,000 pohon</span><span>100,000 pohon</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card hero-right">
+        <div class="illustration" aria-hidden="true">
+          <!-- Simple mangrove SVG illustration -->
+          <svg class="mangrove-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#7ccf84" />
+                <stop offset="1" stop-color="#2f8f4e" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="300" height="220" rx="12" fill="url(#g1)" opacity="0.08"/>
+            <!-- stylized saplings -->
+            <g transform="translate(30,40)">
+              <path d="M20 160 C20 120, 40 90, 60 70" stroke="#2f8f4e" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <g fill="#1b5e3a">
+                <ellipse cx="60" cy="70" rx="18" ry="10"/>
+                <ellipse cx="70" cy="56" rx="12" ry="7"/>
+              </g>
+            </g>
+            <g transform="translate(110,50)">
+              <path d="M20 160 C20 110, 50 80, 80 60" stroke="#2f8f4e" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <g fill="#145a33">
+                <ellipse cx="80" cy="60" rx="22" ry="12"/>
+                <ellipse cx="92" cy="46" rx="14" ry="8"/>
+              </g>
+            </g>
+            <g transform="translate(190,60)">
+              <path d="M20 160 C20 115, 60 78, 90 58" stroke="#2f8f4e" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <g fill="#0f4e2b">
+                <ellipse cx="90" cy="58" rx="24" ry="14"/>
+                <ellipse cx="104" cy="44" rx="16" ry="9"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div style="width:100%;padding:1rem">
+          <h3 style="margin:0">Kenapa Mangrove?</h3>
+          <p class="muted" style="margin:.5rem 0 0">Mengurangi erosi pesisir, menyimpan karbon, dan menjadi habitat bagi biota laut — mangrove sangat penting bagi kesejahteraan komunitas pesisir.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="card">
+        <h3>Tentang Proyek</h3>
+        <p class="muted">Proyek "Tanam 100.000 Mangrove" adalah inisiatif kolaboratif antara komunitas lokal, LSM lingkungan, dan sekolah untuk memulihkan garis pantai yang terdegradasi. Program ini mencakup pelatihan penanaman, pemantauan bibit, dan pemeliharaan pasca-penanaman.</p>
+      </div>
+    </section>
+
+    <section id="impact" aria-labelledby="impact-title">
+      <h2 id="impact-title">Dampak yang Diharapkan</h2>
+      <div class="grid-3" style="margin-top:1rem">
+        <div class="card">
+          <h3>Perlindungan Pesisir</h3>
+          <p class="muted">Mengurangi erosi pantai dan memperkuat garis pantai terhadap badai besar.</p>
+        </div>
+        <div class="card">
+          <h3>Penyerapan Karbon</h3>
+          <p class="muted">Mangrove menyimpan karbon secara efektif, membantu mitigasi perubahan iklim.</p>
+        </div>
+        <div class="card">
+          <h3>Penghidupan Lokal</h3>
+          <p class="muted">Meningkatkan sumber mata pencaharian bagi komunitas melalui perikanan yang lebih sehat dan ekowisata.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>Bagaimana Kamu Bisa Membantu</h2>
+      <div class="steps" style="margin-top:1rem">
+        <div class="step card">
+          <div class="badge">1</div>
+          <div>
+            <h4 style="margin:0">Ikut Menanam</h4>
+            <p class="muted">Daftar sebagai relawan untuk sesi penanaman di lokasi mitra kami.</p>
+          </div>
+        </div>
+
+        <div class="step card">
+          <div class="badge">2</div>
+          <div>
+            <h4 style="margin:0">Donasi Bibit</h4>
+            <p class="muted">Sumbangkan bibit atau dana untuk perawatan awal.</p>
+          </div>
+        </div>
+
+        <div class="step card">
+          <div class="badge">3</div>
+          <div>
+            <h4 style="margin:0">Pantau & Rawat</h4>
+            <p class="muted">Ikut program pemantauan pasca-tanam untuk memastikan bibit tumbuh.</p>
+          </div>
+        </div>
+
+        <div class="step card">
+          <div class="badge">4</div>
+          <div>
+            <h4 style="margin:0">Sebarkan</h4>
+            <p class="muted">Bantu sebarkan kampanye ke jaringanmu untuk menjangkau lebih banyak dukungan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Galeri Singkat (dokumentasi lapangan)</h2>
+      <div class="gallery" style="margin-top:1rem">
+        <img alt="Mangrove 1" src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=60">
+        <img alt="Mangrove 2" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=60">
+        <img alt="Mangrove 3" src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=60">
+        <img alt="Mangrove 4" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Kontak & Daftar Relawan</h2>
+      <div style="display:grid;grid-template-columns:1fr 380px;gap:1rem;margin-top:1rem">
+        <div class="card">
+          <h3>Form Pendaftaran Relawan</h3>
+          <p class="muted">Isi data di bawah ini, kami akan menghubungi via email untuk detail lokasi dan jadwal.</p>
+          <!-- form tanpa JS: kirim ke mailto sebagai fallback atau simpan via server (tidak disediakan) -->
+          <form action="mailto:info@tanammangrove.org" method="post" enctype="text/plain">
+            <input type="text" name="Nama" placeholder="Nama lengkap" required>
+            <div class="form-row">
+              <input class="small" type="email" name="Email" placeholder="Email" required>
+              <input class="small" type="tel" name="Telepon" placeholder="No. Telepon">
+            </div>
+            <select name="Peran">
+              <option>Relawan Tanam</option>
+              <option>Donatur Bibit</option>
+              <option>Pengawas Lapangan</option>
+              <option>Publikasi</option>
+            </select>
+            <textarea name="Pesan" rows="4" placeholder="Pesan / catatan tambahan (opsional)"></textarea>
+            <div style="display:flex;gap:.6rem;margin-top:.6rem">
+              <button class="btn btn-primary" type="submit">Kirim</button>
+              <a class="btn btn-secondary" href="mailto:info@tanammangrove.org">Email Langsung</a>
+            </div>
+          </form>
+        </div>
+
+        <aside class="card">
+          <h3>Hubungi Kami</h3>
+          <p class="muted">Email: info@tanammangrove.org<br>Telp: +62 812-3456-7890<br>Alamat kantor: Jl. Pantai Hijau No. 12</p>
+          <div style="margin-top:1rem">
+            <strong style="display:block">Perlu bantuan cepat?</strong>
+            <p class="muted" style="margin:0">Kirim email dengan subjek "Relawan" dan cantumkan lokasimu.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;flex-direction:column;gap:.6rem;align-items:center;justify-content:center">
+        <div class="muted">© 2025 TanamMangrove. Semua hak dilindungi.</div>
+        <div class="muted">Didesain tanpa JavaScript - fokus pada aksesibilitas & kesederhanaan.</div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
